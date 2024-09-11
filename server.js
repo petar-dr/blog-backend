@@ -22,7 +22,7 @@ app.use(express.json());
 
 //ROUTE MOUNTING
 app.use("/api/v1/users", userRouter);
-// app.use("api/v1/blogs", blogRouter);
+app.use("/api/v1/blogs", blogRouter);
 
 //START SERVER
 const port = 3000;
