@@ -27,7 +27,7 @@ exports.getAllUsers = async (req, res) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "fail",
+      status: "Fail",
       message: err,
     });
   }
@@ -43,7 +43,7 @@ exports.getUser = async (req, res) => {
     });
   } catch (err) {
     res.status(400).json({
-      status: "fail",
+      status: "Fail",
       message: err,
     });
   }

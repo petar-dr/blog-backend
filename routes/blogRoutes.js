@@ -3,6 +3,10 @@ const blogController = require("../controllers/blogController.js");
 
 const router = express.Router();
 
-router.route("/").post(blogController.addBlog);
+router
+  .route("/")
+  .get(blogController.getAllBlogs)
+  .post(blogController.createBlog);
+router.route("/:id").get(blogController.getBlog);
 
 module.exports = router;
