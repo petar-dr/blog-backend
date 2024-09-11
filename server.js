@@ -1,7 +1,17 @@
 const express = require("express");
-// const mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-// const blogRouter = require("./routes/blogRoutes");
+// MONGOOSE CONNECTION
+mongoose
+  .connect(
+    "mongodb+srv://pera91bb:u15bD718Cl61ts1v@blogdata.ra7xm.mongodb.net/blogsColections?retryWrites=true&w=majority&appName=blogData/"
+  )
+  .then((con) => {
+    // console.log(con.connections);
+    console.log("Mungoose is conected!");
+  });
+
+const blogRouter = require("./routes/blogRoutes");
 const userRouter = require("./routes/userRoutes");
 
 //CREATE SERVER
