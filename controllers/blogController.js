@@ -46,3 +46,19 @@ exports.getBlog = async (req, res) => {
     });
   }
 };
+exports.updateBlog = async (req, res) => {
+  try {
+    const newBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.status(200).json({
+      status: "Updated",
+      data: newBlog,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "Fail",
+      message: err,
+    });
+  }
+};

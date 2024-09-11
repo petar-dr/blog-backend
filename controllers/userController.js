@@ -48,3 +48,21 @@ exports.getUser = async (req, res) => {
     });
   }
 };
+
+exports.updateUser = async (req, res) => {
+  try {
+    const newUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+
+    res.status(200).json({
+      status: "Updated",
+      data: newUser,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "Fail",
+      message: err,
+    });
+  }
+};
