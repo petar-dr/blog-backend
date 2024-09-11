@@ -67,3 +67,18 @@ exports.updateUser = async (req, res) => {
     });
   }
 };
+
+exports.deleteUser = async (req, res) => {
+  try {
+    const blog = await User.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: "User is deleted!",
+      data: null,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "Fail",
+      message: err,
+    });
+  }
+};

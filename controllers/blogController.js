@@ -63,3 +63,17 @@ exports.updateBlog = async (req, res) => {
     });
   }
 };
+exports.deleteBlog = async (req, res) => {
+  try {
+    const blog = await Blog.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: "Blog is deleted!",
+      data: null,
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: "Fail",
+      message: err,
+    });
+  }
+};
