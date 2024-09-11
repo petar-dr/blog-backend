@@ -50,6 +50,7 @@ exports.updateBlog = async (req, res) => {
   try {
     const newBlog = await Blog.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
+      runValidators: true,
     });
     res.status(200).json({
       status: "Updated",
